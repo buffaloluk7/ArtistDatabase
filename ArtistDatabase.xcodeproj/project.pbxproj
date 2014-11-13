@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		800F78101A15661B004933D9 /* EditArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800F780F1A15661B004933D9 /* EditArtistViewController.swift */; };
+		800F78121A156639004933D9 /* EditAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800F78111A156639004933D9 /* EditAlbumViewController.swift */; };
 		805DBE2B1A154340008B5D59 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805DBE2A1A154340008B5D59 /* ArtistViewController.swift */; };
 		80FA04DA1A153FD700FEE118 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA04D91A153FD700FEE118 /* AppDelegate.swift */; };
 		80FA04DD1A153FD700FEE118 /* ArtistDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80FA04DB1A153FD700FEE118 /* ArtistDatabase.xcdatamodeld */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		800F780F1A15661B004933D9 /* EditArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditArtistViewController.swift; sourceTree = "<group>"; };
+		800F78111A156639004933D9 /* EditAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAlbumViewController.swift; sourceTree = "<group>"; };
 		805DBE2A1A154340008B5D59 /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		80FA04D41A153FD700FEE118 /* ArtistDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtistDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80FA04D81A153FD700FEE118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 			children = (
 				80FA04DE1A153FD800FEE118 /* HomeViewController.swift */,
 				805DBE2A1A154340008B5D59 /* ArtistViewController.swift */,
+				800F780F1A15661B004933D9 /* EditArtistViewController.swift */,
+				800F78111A156639004933D9 /* EditAlbumViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -228,6 +234,8 @@
 			files = (
 				80FA04DF1A153FD800FEE118 /* HomeViewController.swift in Sources */,
 				80FA04DA1A153FD700FEE118 /* AppDelegate.swift in Sources */,
+				800F78121A156639004933D9 /* EditAlbumViewController.swift in Sources */,
+				800F78101A15661B004933D9 /* EditArtistViewController.swift in Sources */,
 				80FA04DD1A153FD700FEE118 /* ArtistDatabase.xcdatamodeld in Sources */,
 				805DBE2B1A154340008B5D59 /* ArtistViewController.swift in Sources */,
 			);

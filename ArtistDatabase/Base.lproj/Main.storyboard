@@ -13,13 +13,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistCell" id="sUF-Vl-WCc">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artistCell" id="sUF-Vl-WCc">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sUF-Vl-WCc" id="ljq-MZ-ExT">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="AqR-gA-xeb" kind="show" id="IHX-y5-F45"/>
+                                    <segue destination="AqR-gA-xeb" kind="show" identifier="showArtistSegue" id="IHX-y5-F45"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -29,12 +29,46 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ArtistDatabase" id="QJL-l9-fRW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Gj-fX-Jbl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Gj-fX-Jbl">
+                            <connections>
+                                <segue destination="qv7-gu-tth" kind="show" identifier="addArtistSegue" id="KIE-wK-sj7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aSt-3O-gs5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1225" y="438"/>
+        </scene>
+        <!--Add a new artist-->
+        <scene sceneID="EbJ-2U-Twr">
+            <objects>
+                <viewController id="qv7-gu-tth" customClass="EditArtistViewController" customModule="ArtistDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HjU-X5-Phv"/>
+                        <viewControllerLayoutGuide type="bottom" id="HZh-Rd-dq6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xQD-lz-hno">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a new artist" id="Dw9-3z-6bp">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bb2-rv-3sS">
+                            <connections>
+                                <action selector="cancel:" destination="qv7-gu-tth" id="hl8-6S-U6G"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MhU-nt-Tv3">
+                            <connections>
+                                <action selector="save:" destination="qv7-gu-tth" id="jkK-WW-rs6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ycD-Kq-wTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1225" y="1130"/>
         </scene>
         <!--Title-->
         <scene sceneID="tnv-fL-YGT">
@@ -58,12 +92,46 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="NSt-7J-l9b">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="O6j-UN-wxp"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="O6j-UN-wxp">
+                            <connections>
+                                <segue destination="Irn-5r-bvs" kind="show" identifier="addAlbumSegue" id="60u-EB-K4J"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UW7-yH-H4o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1887" y="438"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="Dm3-9m-its">
+            <objects>
+                <viewController id="Irn-5r-bvs" customClass="EditAlbumViewController" customModule="ArtistDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AoW-f5-PGG"/>
+                        <viewControllerLayoutGuide type="bottom" id="7nW-cI-8dE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V4Z-vX-v2w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="KYd-5M-0Jf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XrP-jQ-zgm">
+                            <connections>
+                                <action selector="cancel:" destination="Irn-5r-bvs" id="khO-LM-rtJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Gsd-5t-fSj">
+                            <connections>
+                                <action selector="save:" destination="Irn-5r-bvs" id="S8o-fW-pML"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9xj-cj-r0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1887" y="1130"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="K5p-P1-ChV">

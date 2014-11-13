@@ -21,14 +21,23 @@ class HomeViewController: UITableViewController {
         super.init(coder: aDecoder)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = "Table View"
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segue.identifier! {
+            case "showArtistSegue":
+                let viewController = segue.destinationViewController as ArtistViewController
+                return
+            case "addArtistSegue":
+                return
+            default:
+                return
+        }
     }
     
-    override func viewDidAppear(animated: Bool)
-    {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         self.tableView.reloadData()
     }
     
@@ -36,28 +45,23 @@ class HomeViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    //#pragma mark - Table view data source
+    // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
-        // Return the number of sections.
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
-        
-        // Return the number of rows in the section.
-        return tableArray.count;
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tableArray.count
     }
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
-    {
-        return true;
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-    {
-        if(editingStyle == UITableViewCellEditingStyle.Delete)
-        {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if(editingStyle == UITableViewCellEditingStyle.Delete) {
             tableArray.removeObjectAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
             tableView.reloadData()
@@ -66,18 +70,16 @@ class HomeViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("artistCell", forIndexPath: indexPath) as UITableViewCell
-        
         cell.textLabel.text = tableArray.objectAtIndex(indexPath.row) as NSString
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.showAlert(tableArray.objectAtIndex(indexPath.row) as NSString, rowToUseInAlert: indexPath.row)
     }
     
-    //#pragma mark - UIAlertView delegate methods
+    // MARK: - UIAlertView delegate methods
     
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
         NSLog("Did dismiss button: %d", buttonIndex)
@@ -94,5 +96,6 @@ class HomeViewController: UITableViewController {
         
         alert.show()
     }
+    
 }
 
