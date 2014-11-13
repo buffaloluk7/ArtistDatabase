@@ -1,63 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8AH-e4-xC4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2C5-us-jzb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--ArtistDatabase-->
-        <scene sceneID="ufC-wZ-h7g">
+        <scene sceneID="lwr-9a-jFE">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ArtistDatabase" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="ArtistDatabase" id="lUO-5E-LFg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1183" y="430"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="DRu-7n-1Re">
-            <objects>
-                <viewController id="RQV-Ex-POa" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8S9-o0-KqX"/>
-                        <viewControllerLayoutGuide type="bottom" id="3UK-Ls-07g"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bi4-E3-gTs">
+                <tableViewController id="Nfy-3O-lN1" customClass="HomeViewController" customModule="ArtistDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eHJ-q8-pe5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zmL-JU-rWC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="artistCell" id="sUF-Vl-WCc">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sUF-Vl-WCc" id="ljq-MZ-ExT">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="AqR-gA-xeb" kind="show" id="IHX-y5-F45"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Nfy-3O-lN1" id="P9c-yI-KVG"/>
+                            <outlet property="delegate" destination="Nfy-3O-lN1" id="ODQ-yz-Zya"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="ArtistDatabase" id="QJL-l9-fRW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Gj-fX-Jbl"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aSt-3O-gs5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1861" y="430"/>
+            <point key="canvasLocation" x="1225" y="438"/>
+        </scene>
+        <!--Artist View Controller-->
+        <scene sceneID="tnv-fL-YGT">
+            <objects>
+                <tableViewController id="AqR-gA-xeb" customClass="ArtistViewController" customModule="ArtistDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="69E-DH-VDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" id="wGM-fQ-pRI">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wGM-fQ-pRI" id="LaN-SG-PaQ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AqR-gA-xeb" id="tPf-4n-6fB"/>
+                            <outlet property="delegate" destination="AqR-gA-xeb" id="oHE-yt-dBw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UW7-yH-H4o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1887" y="438"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="w54-ce-45y">
+        <scene sceneID="K5p-P1-ChV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8AH-e4-xC4" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2C5-us-jzb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iYa-6V-pQO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="okF-aA-RhV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Ulv-Yo-xXg"/>
+                        <segue destination="Nfy-3O-lN1" kind="relationship" relationship="rootViewController" id="B0E-1b-tsO"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mZN-gb-G1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wGA-OY-Asw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="371" y="430"/>
+            <point key="canvasLocation" x="399" y="438"/>
         </scene>
     </scenes>
 </document>
