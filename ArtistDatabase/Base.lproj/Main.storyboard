@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="artistCell" id="sUF-Vl-WCc">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistCell" id="sUF-Vl-WCc">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sUF-Vl-WCc" id="ljq-MZ-ExT">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -36,7 +36,7 @@
             </objects>
             <point key="canvasLocation" x="1225" y="438"/>
         </scene>
-        <!--Artist View Controller-->
+        <!--Title-->
         <scene sceneID="tnv-fL-YGT">
             <objects>
                 <tableViewController id="AqR-gA-xeb" customClass="ArtistViewController" customModule="ArtistDatabase" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,6 +57,9 @@
                             <outlet property="delegate" destination="AqR-gA-xeb" id="oHE-yt-dBw"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="NSt-7J-l9b">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="O6j-UN-wxp"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UW7-yH-H4o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
