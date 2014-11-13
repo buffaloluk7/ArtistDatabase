@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2C5-us-jzb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--ArtistDatabase-->
@@ -13,10 +14,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artistCell" id="sUF-Vl-WCc">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artistCell" textLabel="eyP-DN-rIE" detailTextLabel="5Wy-h0-76z" style="IBUITableViewCellStyleValue1" id="sUF-Vl-WCc">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sUF-Vl-WCc" id="ljq-MZ-ExT">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eyP-DN-rIE">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Wy-h0-76z">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="AqR-gA-xeb" kind="show" identifier="showArtistSegue" id="IHX-y5-F45"/>
@@ -51,7 +66,43 @@
                     <view key="view" contentMode="scaleToFill" id="xQD-lz-hno">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVJ-lB-tOX">
+                                <rect key="frame" x="16" y="93" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYL-qg-eka">
+                                <rect key="frame" x="85" y="89" width="499" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a label" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e4S-IO-gfu">
+                                <rect key="frame" x="85" y="144" width="499" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lY-eW-zRn">
+                                <rect key="frame" x="16" y="148" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e4S-IO-gfu" firstAttribute="trailing" secondItem="aYL-qg-eka" secondAttribute="trailing" id="0tV-Ms-8f6"/>
+                            <constraint firstItem="aYL-qg-eka" firstAttribute="leading" secondItem="nVJ-lB-tOX" secondAttribute="trailing" constant="23" id="29p-WR-35A"/>
+                            <constraint firstItem="nVJ-lB-tOX" firstAttribute="top" secondItem="HjU-X5-Phv" secondAttribute="bottom" constant="29" id="5Xy-Nk-LH8"/>
+                            <constraint firstItem="aYL-qg-eka" firstAttribute="trailing" secondItem="xQD-lz-hno" secondAttribute="trailingMargin" id="7pX-7c-ika"/>
+                            <constraint firstItem="6lY-eW-zRn" firstAttribute="top" secondItem="nVJ-lB-tOX" secondAttribute="bottom" constant="34" id="KwB-7f-Akk"/>
+                            <constraint firstItem="nVJ-lB-tOX" firstAttribute="leading" secondItem="6lY-eW-zRn" secondAttribute="leading" id="QUd-TP-Ydk"/>
+                            <constraint firstItem="aYL-qg-eka" firstAttribute="leading" secondItem="e4S-IO-gfu" secondAttribute="leading" id="WpA-4u-COY"/>
+                            <constraint firstItem="e4S-IO-gfu" firstAttribute="top" secondItem="aYL-qg-eka" secondAttribute="bottom" constant="25" id="mv0-AH-R9X"/>
+                            <constraint firstItem="nVJ-lB-tOX" firstAttribute="leading" secondItem="xQD-lz-hno" secondAttribute="leadingMargin" id="yio-1E-MEa"/>
+                            <constraint firstItem="aYL-qg-eka" firstAttribute="top" secondItem="HjU-X5-Phv" secondAttribute="bottom" constant="25" id="zpM-rK-ZRJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add a new artist" id="Dw9-3z-6bp">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bb2-rv-3sS">
@@ -70,7 +121,7 @@
             </objects>
             <point key="canvasLocation" x="1225" y="1130"/>
         </scene>
-        <!--Title-->
+        <!--Albums-->
         <scene sceneID="tnv-fL-YGT">
             <objects>
                 <tableViewController id="AqR-gA-xeb" customClass="ArtistViewController" customModule="ArtistDatabase" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,10 +130,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" id="wGM-fQ-pRI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" textLabel="aTx-RU-xGT" detailTextLabel="OKu-nn-htU" style="IBUITableViewCellStyleValue1" id="wGM-fQ-pRI">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wGM-fQ-pRI" id="LaN-SG-PaQ">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aTx-RU-xGT">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OKu-nn-htU">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -91,7 +156,7 @@
                             <outlet property="delegate" destination="AqR-gA-xeb" id="oHE-yt-dBw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="NSt-7J-l9b">
+                    <navigationItem key="navigationItem" title="Albums" id="NSt-7J-l9b">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="O6j-UN-wxp">
                             <connections>
                                 <segue destination="Irn-5r-bvs" kind="show" identifier="addAlbumSegue" id="60u-EB-K4J"/>
@@ -103,7 +168,7 @@
             </objects>
             <point key="canvasLocation" x="1887" y="438"/>
         </scene>
-        <!--Title-->
+        <!--Add a new album-->
         <scene sceneID="Dm3-9m-its">
             <objects>
                 <viewController id="Irn-5r-bvs" customClass="EditAlbumViewController" customModule="ArtistDatabase" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,9 +179,61 @@
                     <view key="view" contentMode="scaleToFill" id="V4Z-vX-v2w">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTi-cb-tYQ">
+                                <rect key="frame" x="16" y="148" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAa-3b-DY3">
+                                <rect key="frame" x="16" y="93" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Format" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evl-53-g1L">
+                                <rect key="frame" x="16" y="204" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lP2-rO-dct">
+                                <rect key="frame" x="85" y="89" width="499" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a year" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F0e-ZD-Iv0">
+                                <rect key="frame" x="85" y="144" width="499" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a format" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRW-Zc-1bT">
+                                <rect key="frame" x="85" y="200" width="499" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F0e-ZD-Iv0" firstAttribute="trailing" secondItem="bRW-Zc-1bT" secondAttribute="trailing" id="95l-yw-e46"/>
+                            <constraint firstItem="bRW-Zc-1bT" firstAttribute="top" secondItem="F0e-ZD-Iv0" secondAttribute="bottom" constant="26" id="9X7-1K-Lfp"/>
+                            <constraint firstItem="EAa-3b-DY3" firstAttribute="leading" secondItem="V4Z-vX-v2w" secondAttribute="leadingMargin" id="COg-wd-0js"/>
+                            <constraint firstItem="F0e-ZD-Iv0" firstAttribute="top" secondItem="lP2-rO-dct" secondAttribute="bottom" constant="25" id="DOc-iH-S8l"/>
+                            <constraint firstItem="lP2-rO-dct" firstAttribute="top" secondItem="AoW-f5-PGG" secondAttribute="bottom" constant="25" id="J1r-WV-t64"/>
+                            <constraint firstItem="bRW-Zc-1bT" firstAttribute="leading" secondItem="F0e-ZD-Iv0" secondAttribute="leading" id="LmQ-rU-mcI"/>
+                            <constraint firstItem="bRW-Zc-1bT" firstAttribute="leading" secondItem="evl-53-g1L" secondAttribute="trailing" constant="14" id="Mmg-Fj-ESg"/>
+                            <constraint firstItem="F0e-ZD-Iv0" firstAttribute="trailing" secondItem="V4Z-vX-v2w" secondAttribute="trailingMargin" id="S8I-is-q4c"/>
+                            <constraint firstItem="evl-53-g1L" firstAttribute="top" secondItem="fTi-cb-tYQ" secondAttribute="bottom" constant="35" id="YXU-Af-9NO"/>
+                            <constraint firstItem="lP2-rO-dct" firstAttribute="trailing" secondItem="F0e-ZD-Iv0" secondAttribute="trailing" id="jLn-Su-AqR"/>
+                            <constraint firstItem="EAa-3b-DY3" firstAttribute="top" secondItem="AoW-f5-PGG" secondAttribute="bottom" constant="29" id="lH3-tR-W5r"/>
+                            <constraint firstItem="fTi-cb-tYQ" firstAttribute="leading" secondItem="evl-53-g1L" secondAttribute="leading" id="nU1-H4-7TS"/>
+                            <constraint firstItem="fTi-cb-tYQ" firstAttribute="leading" secondItem="EAa-3b-DY3" secondAttribute="leading" id="qdy-Lv-yIc"/>
+                            <constraint firstItem="fTi-cb-tYQ" firstAttribute="top" secondItem="EAa-3b-DY3" secondAttribute="bottom" constant="34" id="tC4-uI-jlS"/>
+                            <constraint firstItem="F0e-ZD-Iv0" firstAttribute="leading" secondItem="lP2-rO-dct" secondAttribute="leading" id="y0J-Y8-6TC"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="KYd-5M-0Jf">
+                    <navigationItem key="navigationItem" title="Add a new album" id="KYd-5M-0Jf">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XrP-jQ-zgm">
                             <connections>
                                 <action selector="cancel:" destination="Irn-5r-bvs" id="khO-LM-rtJ"/>

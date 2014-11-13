@@ -71,6 +71,7 @@ class HomeViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("artistCell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel.text = tableArray.objectAtIndex(indexPath.row) as NSString
+        cell.detailTextLabel?.text = "1 Album"
         
         return cell
     }

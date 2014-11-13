@@ -71,6 +71,7 @@ class ArtistViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("albumCell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel.text = tableArray.objectAtIndex(indexPath.row) as NSString
+        cell.detailTextLabel?.text = String(1990)
         
         return cell
     }
