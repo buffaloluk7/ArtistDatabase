@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artistCell" textLabel="eyP-DN-rIE" detailTextLabel="5Wy-h0-76z" style="IBUITableViewCellStyleValue1" id="sUF-Vl-WCc">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="artistCell" editingAccessoryType="detailButton" textLabel="eyP-DN-rIE" detailTextLabel="5Wy-h0-76z" style="IBUITableViewCellStyleValue1" id="sUF-Vl-WCc">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sUF-Vl-WCc" id="ljq-MZ-ExT">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -35,6 +35,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="AqR-gA-xeb" kind="show" identifier="showArtistSegue" id="IHX-y5-F45"/>
+                                    <segue destination="qv7-gu-tth" kind="show" identifier="editArtistSegue" trigger="accessoryAction" id="gK9-6r-pkJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -43,10 +44,16 @@
                             <outlet property="delegate" destination="Nfy-3O-lN1" id="ODQ-yz-Zya"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="ArtistDatabase" id="QJL-l9-fRW">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="R60-dm-AQf">
+                            <connections>
+                                <action selector="editArtists:" destination="Nfy-3O-lN1" id="S0W-zY-STW"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Gj-fX-Jbl">
                             <connections>
-                                <segue destination="qv7-gu-tth" kind="show" identifier="addArtistSegue" id="KIE-wK-sj7"/>
+                                <segue destination="qv7-gu-tth" kind="show" identifier="add" id="ymK-6V-FZY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -116,6 +123,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="artistLabel" destination="e4S-IO-gfu" id="DCH-ct-wHE"/>
+                        <outlet property="artistName" destination="aYL-qg-eka" id="D2X-ta-395"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycD-Kq-wTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,6 +160,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Irn-5r-bvs" kind="show" identifier="editAlbumSegue" id="WNK-LN-mff"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -206,7 +220,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a year" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F0e-ZD-Iv0">
                                 <rect key="frame" x="85" y="144" width="499" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a format" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRW-Zc-1bT">
                                 <rect key="frame" x="85" y="200" width="499" height="30"/>
@@ -245,6 +259,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="albumFormat" destination="bRW-Zc-1bT" id="GEa-Nz-K0C"/>
+                        <outlet property="albumName" destination="lP2-rO-dct" id="YaE-LB-3w5"/>
+                        <outlet property="albumYear" destination="F0e-ZD-Iv0" id="EVB-9l-US6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xj-cj-r0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -269,4 +288,8 @@
             <point key="canvasLocation" x="399" y="438"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WNK-LN-mff"/>
+        <segue reference="ymK-6V-FZY"/>
+    </inferredMetricsTieBreakers>
 </document>

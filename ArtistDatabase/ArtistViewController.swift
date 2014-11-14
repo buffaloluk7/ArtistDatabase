@@ -7,95 +7,103 @@
 //
 
 import UIKit
+import CoreData
 
-class ArtistViewController: UITableViewController {
+class ArtistViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var tableArray:NSMutableArray = ["Swift", "Objective -C", "Python", "Java", "Ruby"]
-    
-    override init(style: UITableViewStyle) {
-        super.init(style: style)
-        // Custom initialization
-    }
-    
-    required init(coder aDecoder: NSCoder)  {
-        super.init(coder: aDecoder)
-    }
+    var artist: Artist?
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
+    var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
-        case "showArtistSegue":
-            let viewController = segue.destinationViewController as ArtistViewController
-            return
-        case "addArtistSegue":
-            return
-        default:
-            return
+            case "addAlbumSegue":
+                let viewController = segue.destinationViewController as EditAlbumViewController
+                viewController.artist = self.artist
+            
+            case "editAlbumSegue":
+                let album = self.getSelectedAlbum(sender as UITableViewCell)            
+                let viewController = segue.destinationViewController as EditAlbumViewController
+                viewController.album = album
+            
+            default:
+                break
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        self.tableView.reloadData()
+        
+        self.fetchedResultsController = self.getFetchedResultsController()
+        self.fetchedResultsController.delegate = self
+        self.fetchedResultsController.performFetch(nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table view data source.
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return self.fetchedResultsController.sections!.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableArray.count
+        return self.fetchedResultsController.sections![section].numberOfObjects
     }
-    
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if(editingStyle == UITableViewCellEditingStyle.Delete) {
-            tableArray.removeObjectAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-            tableView.reloadData()
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            let managedObject: NSManagedObject = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
+            managedObjectContext.deleteObject(managedObject)
+            managedObjectContext.save(nil)
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Get the artist for the given index path.
+        let album = fetchedResultsController.objectAtIndexPath(indexPath) as Album
+        
+        // Fill the cell with artist details.
         let cell = tableView.dequeueReusableCellWithIdentifier("albumCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel.text = tableArray.objectAtIndex(indexPath.row) as NSString
-        cell.detailTextLabel?.text = String(1990)
+        cell.textLabel.text = album.name
+        cell.detailTextLabel?.text = album.year
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.showAlert(tableArray.objectAtIndex(indexPath.row) as NSString, rowToUseInAlert: indexPath.row)
+    // MARK: - Private and internal methods.
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.reloadData()
     }
     
-    // MARK: - UIAlertView delegate methods
-    
-    func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
-        NSLog("Did dismiss button: %d", buttonIndex)
+    private func getFetchedResultsController() -> NSFetchedResultsController {
+        return NSFetchedResultsController(fetchRequest: self.fetchAlbumsRequest(), managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
     }
     
-    // Function to init a UIAlertView and show it
-    func showAlert(rowTitle:NSString, rowToUseInAlert: Int) {
-        var alert = UIAlertView()
+    private func fetchAlbumsRequest() -> NSFetchRequest {
+        let fetchRequest = NSFetchRequest(entityName: "Album")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.predicate = NSPredicate(format: "artist == %@", self.artist!)
         
-        alert.delegate = self
-        alert.title = rowTitle
-        alert.message = "You selected row \(rowToUseInAlert)"
-        alert.addButtonWithTitle("OK")
+        return fetchRequest
+    }
+    
+    private func getSelectedAlbum(cell: UITableViewCell) -> Album {
+        let indexPath = self.tableView.indexPathForCell(cell)
         
-        alert.show()
+        return self.getSelectedAlbum(indexPath!)
+    }
+    
+    private func getSelectedAlbum(indexPath: NSIndexPath) -> Album {
+        return self.fetchedResultsController.objectAtIndexPath(indexPath) as Album
     }
     
 }
