@@ -13,13 +13,11 @@ class HomeViewController: UITableViewController, NSFetchedResultsControllerDeleg
 
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
-
-    @IBAction func editArtists(sender: UIBarButtonItem) {
-        setArtistsEditingMode(!self.tableView.editing)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
         self.fetchedResultsController = getFetchedResultsController()
         self.fetchedResultsController.delegate = self
@@ -31,9 +29,6 @@ class HomeViewController: UITableViewController, NSFetchedResultsControllerDeleg
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Remove editing mode from TableView
-        self.setArtistsEditingMode(false)
-        
         switch segue.identifier! {
             case "showArtistSegue":
                 // Store artist object in ViewController.
@@ -100,16 +95,6 @@ class HomeViewController: UITableViewController, NSFetchedResultsControllerDeleg
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         return fetchRequest
-    }
-    
-    private func setArtistsEditingMode(enable: Bool) {
-        self.tableView.setEditing(enable, animated: true)
-        let title = enable ? "Done" : "Edit"
-        let style = enable ? UIBarButtonItemStyle.Done : UIBarButtonItemStyle.Plain
-        
-        let leftBarButton = UIBarButtonItem(title: title, style: style, target: self.navigationItem.leftBarButtonItem?.target, action: self.navigationItem.leftBarButtonItem!.action)
-        
-        self.navigationItem.leftBarButtonItem = leftBarButton
     }
     
     private func getSelectedArtist(cell: UITableViewCell) -> Artist {

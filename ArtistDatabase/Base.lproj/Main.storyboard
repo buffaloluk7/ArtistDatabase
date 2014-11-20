@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2C5-us-jzb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2C5-us-jzb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -46,11 +46,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="ArtistDatabase" id="QJL-l9-fRW">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="R60-dm-AQf">
-                            <connections>
-                                <action selector="editArtists:" destination="Nfy-3O-lN1" id="S0W-zY-STW"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Gj-fX-Jbl">
                             <connections>
                                 <segue destination="qv7-gu-tth" kind="show" identifier="add" id="ymK-6V-FZY"/>
