@@ -71,8 +71,9 @@ class ArtistViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // Fill the cell with artist details.
         let cell = tableView.dequeueReusableCellWithIdentifier("albumCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel.text = album.name
-        cell.detailTextLabel?.text = album.year
+        (cell.viewWithTag(1) as UILabel).text = album.name
+        (cell.viewWithTag(2) as UILabel).text = "(\(album.format))"
+        (cell.viewWithTag(3) as UILabel).text = album.year
         
         return cell
     }

@@ -136,24 +136,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" textLabel="aTx-RU-xGT" detailTextLabel="OKu-nn-htU" style="IBUITableViewCellStyleValue1" id="wGM-fQ-pRI">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" id="wGM-fQ-pRI">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wGM-fQ-pRI" id="LaN-SG-PaQ">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aTx-RU-xGT">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdU-V5-5sh">
+                                            <rect key="frame" x="17" y="11" width="100" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OKu-nn-htU">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Format" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAK-Mf-O54">
+                                            <rect key="frame" x="125" y="11" width="109" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Year" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPh-0D-Plr">
+                                            <rect key="frame" x="492" y="11" width="88" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GdU-V5-5sh" firstAttribute="leading" secondItem="LaN-SG-PaQ" secondAttribute="leadingMargin" constant="9" id="866-bB-6IH"/>
+                                        <constraint firstItem="nAK-Mf-O54" firstAttribute="leading" secondItem="GdU-V5-5sh" secondAttribute="trailing" constant="8" symbolic="YES" id="9vw-p9-2IC"/>
+                                        <constraint firstItem="GdU-V5-5sh" firstAttribute="baseline" secondItem="nAK-Mf-O54" secondAttribute="baseline" id="DXY-rP-bGn"/>
+                                        <constraint firstItem="dPh-0D-Plr" firstAttribute="centerY" secondItem="LaN-SG-PaQ" secondAttribute="centerY" id="c7R-0F-ftI"/>
+                                        <constraint firstItem="dPh-0D-Plr" firstAttribute="trailing" secondItem="LaN-SG-PaQ" secondAttribute="trailingMargin" constant="-12" id="dGA-UX-zuq"/>
+                                        <constraint firstItem="nAK-Mf-O54" firstAttribute="baseline" secondItem="dPh-0D-Plr" secondAttribute="baseline" id="sYu-gw-69U"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="Irn-5r-bvs" kind="show" identifier="editAlbumSegue" id="WNK-LN-mff"/>
@@ -175,7 +189,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UW7-yH-H4o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1887" y="438"/>
+            <point key="canvasLocation" x="1887" y="437"/>
         </scene>
         <!--Add a new album-->
         <scene sceneID="Dm3-9m-its">
