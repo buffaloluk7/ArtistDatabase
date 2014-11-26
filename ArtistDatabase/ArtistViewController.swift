@@ -11,7 +11,7 @@ import CoreData
 
 class ArtistViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var artist: Artist?
+    var artist: Artist!
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext!
     var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
     
@@ -92,7 +92,7 @@ class ArtistViewController: UITableViewController, NSFetchedResultsControllerDel
         let fetchRequest = NSFetchRequest(entityName: "Album")
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        fetchRequest.predicate = NSPredicate(format: "artist == %@", self.artist!)
+        fetchRequest.predicate = NSPredicate(format: "artist == %@", self.artist)
         
         return fetchRequest
     }
